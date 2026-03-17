@@ -17,10 +17,18 @@ export default function Home() {
     setStatus('loading');
 
     try {
-      const res = await fetch('/api/booking', {
+      const res = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify({
+          access_key: 'de095689-57d0-416f-a088-9dc74a113c4a',
+          subject: 'OpenClaw Melbourne 新订单',
+          name: form.name,
+          phone: form.phone,
+          wechat: form.wechat,
+          address: form.address,
+          notes: form.notes,
+        })
       });
 
       if (res.ok) {
