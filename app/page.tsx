@@ -90,10 +90,6 @@ export default function Home() {
             <span>插件配置 (+)</span>
             <span>$50-100 AUD/项</span>
           </div>
-          <div style={styles.priceRow}>
-            <span>远程协助</span>
-            <span>$30 AUD/次</span>
-          </div>
         </div>
       </section>
 
@@ -103,12 +99,20 @@ export default function Home() {
           <div style={styles.contactItem}>
             <span style={styles.contactIcon}>📱</span>
             <span>电话 / SMS</span>
-            <a href="tel:0404309625" style={styles.contactValue}>0404 309 625</a>
+            {status === 'success' ? (
+              <a href="tel:0404309625" style={styles.contactValue}>0404 309 625</a>
+            ) : (
+              <span style={styles.contactLocked}>请先预约</span>
+            )}
           </div>
           <div style={styles.contactItem}>
             <span style={styles.contactIcon}>💬</span>
             <span>微信</span>
-            <span style={styles.contactValue}>WillyShaoZ</span>
+            {status === 'success' ? (
+              <span style={styles.contactValue}>WillyShaoZ</span>
+            ) : (
+              <span style={styles.contactLocked}>预约后可见</span>
+            )}
           </div>
         </div>
       </section>
@@ -373,6 +377,15 @@ const styles: Record<string, React.CSSProperties> = {
     color: '#00ff88',
     fontSize: '18px',
     fontWeight: 'bold',
+  },
+  contactLocked: {
+    color: '#555',
+    fontSize: '14px',
+    fontStyle: 'italic',
+    padding: '4px 12px',
+    background: 'rgba(255,255,255,0.05)',
+    borderRadius: '4px',
+    border: '1px dashed rgba(255,255,255,0.15)',
   },
   booking: {
     padding: '60px 20px',
