@@ -1,6 +1,6 @@
 # Claude Code 对话记录
 
-## 2026-03-17
+> ⚠️ **注意**：所有对话记录已移至 `~/.openclaw/workspace/claude-code-logs/README.md`
 
 ### 对话 1：修改定价和联系方式显示
 
